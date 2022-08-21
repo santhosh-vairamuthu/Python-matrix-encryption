@@ -1,10 +1,11 @@
 '''
-DESCRYPTION :
+DESCRIPTION :
 
 This is an simple encryption program that gets input message as string value and enodes using matrix 
 inversion method and produce a encrypted code starting with '#'.
 The encrypted code is again decrypted and produced as output.
 You can also print the encrypted code.
+
 
 
 ---------------------------------------------
@@ -14,11 +15,12 @@ purpose : Encrytion using matrix in python
 --------------------------------------------
 '''
 
-# modules needed
 
 import random
 import numpy as np
 
+
+# functions for basic math operation
 
 def multiply(mat1,mat2):
     result = [[]]
@@ -42,6 +44,17 @@ def determination(mat):
     return det
 
 
+def matrixInversion(mat):
+    rough_inversion=np.linalg.inv(mat)
+    iMatrix=[]
+    for i in rough_inversion:
+        val=[]
+        for j in i:
+            val.append(float(j))
+        iMatrix.append(val)
+    return iMatrix
+
+#function to randomly generate key value
 
 def generateKeyMatrix(len):
     keyMatrix=[]
@@ -57,6 +70,7 @@ def generateKeyMatrix(len):
         generateKeyMatrix(len(keyMatrix))
 
 
+#functions to convert text to ascii and vice versa
 
 def strToMatrix(str):
     eMatrix=[[]]
@@ -82,15 +96,7 @@ def matrixToStr(mat):
 
 
 
-def matrixInversion(mat):
-    rough_inversion=np.linalg.inv(mat)
-    iMatrix=[]
-    for i in rough_inversion:
-        val=[]
-        for j in i:
-            val.append(float(j))
-        iMatrix.append(val)
-    return iMatrix
+
 
 
 
